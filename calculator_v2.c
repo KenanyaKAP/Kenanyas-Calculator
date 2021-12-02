@@ -2,7 +2,7 @@
 // Simple Calculator v2 by
 // Kenanya Keandra Adriel Prasetyo
 // 5024211004
-// https://github.com/KenanyaKAP/
+// github.com/KenanyaKAP/
 //==================================
 
 #include <stdio.h>
