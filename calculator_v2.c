@@ -295,7 +295,7 @@ int main (){
 
         // Retry ?
         printf("\n\nRetry? [y/n]: ");
-		scanf("%c", &retry);
+	scanf("%c", &retry);
     }
     return 0;
 }
