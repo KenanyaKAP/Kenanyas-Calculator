@@ -1,7 +1,9 @@
-// Simple Calculator by
-// Kenanya Keandra A P
+//==================================
+// Simple Calculator v2 by
+// Kenanya Keandra Adriel Prasetyo
 // 5024211004
-// 2021
+// github.com/KenanyaKAP/
+//==================================
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -243,7 +245,7 @@ int main (){
             "Kenanya Keandra A P\n5024211004\n"
             "\nFeatures:\n"
             "- Available Operator: ^ * / %% + -\n"
-            "- Use bracket on negative number ex: (-4)\n"
+            "- Negative Number Support 'use bracket ex: (-4)'\n"
             "- Parentheses Support ()\n"
             "- Big Number Support up to 4096 Digits\n"
             "\nPress Enter to Continue...");
@@ -262,3 +264,5 @@ int main (){
 	}
     return 0;
 }
+
+// 2021 - Kenanya Keandra A P
