@@ -159,7 +159,6 @@ char* Calculate(char *str){
                     strncpy(temp, &str[startBracket], i-startBracket);
                     
                     // Calculate arithmetic inside ()
-                    printf("Calculate %s\n", temp);
                     temp = Calculate(temp);
                     if (invalid) return str;
 
