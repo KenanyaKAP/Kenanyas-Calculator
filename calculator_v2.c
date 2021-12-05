@@ -2,7 +2,7 @@
 // Simple Calculator v2 by
 // Kenanya Keandra Adriel Prasetyo
 // 5024211004
-// github.com/KenanyaKAP/
+// https://github.com/KenanyaKAP/
 //==================================
 
 #include <stdio.h>
@@ -15,7 +15,7 @@
 if (!(isdigit(STR[INDEX]) || (STR[INDEX] == '('))) {    \
     printf("Invalid Input: %s\n", STR);                 \
     printf("%*s", 15 + INDEX, "");                      \
-    printf("^\n");                                      \
+    printf("^");                                        \
     invalid = 1;                                        \
     return STR;                                         \
 }
@@ -24,7 +24,7 @@ if (!(isdigit(STR[INDEX]) || (STR[INDEX] == '('))) {    \
 if (!(isdigit(STR[INDEX]) || (STR[INDEX] == ')'))) {    \
     printf("Invalid Input: %s\n", STR);                 \
     printf("%*s", 15 + INDEX, "");                      \
-    printf("^\n");                                      \
+    printf("^");                                        \
     invalid = 1;                                        \
     return STR;                                         \
 }
@@ -33,7 +33,7 @@ if (!(isdigit(STR[INDEX]) || (STR[INDEX] == ')'))) {    \
 if (LASTOPERATOR != '\0'){                              \
     printf("Invalid Input: %s\n", STR);                 \
     printf("%*s", 14 + INDEX, "");                      \
-    printf("^\n");                                      \
+    printf("^");                                        \
     invalid = 1;                                        \
     return STR;                                         \
 }
@@ -247,7 +247,7 @@ char* Calculate(char *str){
         default:
             printf("Invalid Input: %s\n", str);
             printf("%*s", 14 + index - (int)mpz_sizeinbase(temp, 10), "");
-            printf("^\n");
+            printf("^");
             invalid = 1;
             return str;
         }
@@ -269,7 +269,7 @@ int main (){
             "Kenanya Keandra A P\n5024211004\n"
             "\nFeatures:\n"
             "- Available Operator: ^ * / %% + -\n"
-            "- Use bracket on negative number ex: (-4)\n"
+            "- Negative Number Support 'use bracket ex:(-4)'\n"
             "- Parentheses Support ()\n"
             "- Big Number Support up to memory limit\n"
             "\nPress Enter to Continue...");
@@ -283,7 +283,7 @@ int main (){
         char *input = (char*)calloc(4096, sizeof(char));
         clrscr();
         printf("Arithmetic Input: ");
-        scanf("%[^\n]%*c", input);
+        scanf("\n%[^\n]%*c", input);
         RemoveSpace(input);
         
         // Reallocate, Calculate, Print, then Deallocate
@@ -293,8 +293,9 @@ int main (){
         free(input);
 
         // Retry ?
-        printf("\n\nRetry? [y/n]: ");
-	scanf("%c", &retry);
+        printf("\nRetry? [y/n]: ");
+		scanf("%c", &retry);
+        printf("\n");
     }
     return 0;
 }
