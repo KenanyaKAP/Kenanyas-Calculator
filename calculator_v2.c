@@ -13,7 +13,7 @@
 
 #define ISNEXTNUMBERVALID(STR, INDEX)                   \
 if (!(isdigit(STR[INDEX]) || (STR[INDEX] == '('))) {    \
-    printf("Invalid Input: %s\n", STR);                 \
+    printf("\nInvalid Input: %s\n", STR);               \
     printf("%*s", 15 + INDEX, "");                      \
     printf("^");                                        \
     invalid = 1;                                        \
@@ -22,7 +22,7 @@ if (!(isdigit(STR[INDEX]) || (STR[INDEX] == '('))) {    \
 
 #define ISPREVNUMBERVALID(STR, INDEX)                   \
 if (!(isdigit(STR[INDEX]) || (STR[INDEX] == ')'))) {    \
-    printf("Invalid Input: %s\n", STR);                 \
+    printf("\nInvalid Input: %s\n", STR);               \
     printf("%*s", 15 + INDEX, "");                      \
     printf("^");                                        \
     invalid = 1;                                        \
@@ -31,7 +31,7 @@ if (!(isdigit(STR[INDEX]) || (STR[INDEX] == ')'))) {    \
 
 #define ISLASTNULL(LASTOPERATOR, STR, INDEX)            \
 if (LASTOPERATOR != '\0'){                              \
-    printf("Invalid Input: %s\n", STR);                 \
+    printf("\nInvalid Input: %s\n", STR);               \
     printf("%*s", 14 + INDEX, "");                      \
     printf("^");                                        \
     invalid = 1;                                        \
@@ -245,7 +245,7 @@ char* Calculate(char *str){
             mpz_sub(sum, sum, temp);
             break;
         default:
-            printf("Invalid Input: %s\n", str);
+            printf("\nInvalid Input: %s\n", str);
             printf("%*s", 14 + index - (int)mpz_sizeinbase(temp, 10), "");
             printf("^");
             invalid = 1;
@@ -289,7 +289,7 @@ int main (){
         // Reallocate, Calculate, Print, then Deallocate
         input = (char*)realloc(input, (strlen(input) + 8) * sizeof(char));
         input = Calculate(input);
-        if (!invalid) printf("Result: %s", input);
+        if (!invalid) printf("\nResult: %s\n", input);
         free(input);
 
         // Retry ?
