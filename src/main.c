@@ -51,13 +51,13 @@ void RemoveSpace(char* str){
         while (*temp == ' '){
             ++temp;
         }
-    } while (*str++ = *temp++);
+    } while ((*str++ = *temp++));
 }
 
 void GetNextNumber(char *str, mpz_t dest, int *index){
     int add = 0;
     char *temp = (char*)calloc(strlen(str) + 8, sizeof(char));
-    for (int i = *index; i < strlen(str); i++){
+    for (unsigned int i = *index; i < strlen(str); i++){
         if (str[i] == '(') {*index += 1; i++; continue;}
         if (str[i] == ')') add += 1;
         if (!isdigit(str[i])){
@@ -147,10 +147,10 @@ char* Calculate(char *str){
     index = 0;
     int ignored = 0;
     int startBracket = 0;
-    while (index < strlen(str)){
+    while (index < (int)strlen(str)){
         if (str[index] == '(' && str[index+1] != '-'){
             startBracket = ++index;
-            for (int i = index; i < strlen(str); i++){
+            for (int i = index; i < (int)strlen(str); i++){
                 if (str[i] == '(') {ignored += 1; continue;}
                 if (str[i] == ')' && ignored != 0) {ignored -= 1; continue;}
                 if (str[i] == ')' && ignored == 0){ // Parentheses found
@@ -204,7 +204,7 @@ char* Calculate(char *str){
     // Calculate * / %
     index = 0;
     mpz_init(prev); mpz_init(next);
-    while (index < strlen(str)){
+    while (index < (int)strlen(str)){
         if (str[index] == '*' || str[index] == '/' || str[index] == '%'){
             // Get the Operator, Previous Number, and Next Number
             char operator = str[index];
@@ -234,7 +234,7 @@ char* Calculate(char *str){
     char lastOperator = str[index++];
 
     // Calculate + -
-    while (index < strlen(str)){
+    while (index < (int)strlen(str)){
         ISNEXTNUMBERVALID(str, index);
         GetNextNumber(str, temp, &index);
         switch (lastOperator){
